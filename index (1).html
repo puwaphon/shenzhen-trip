@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shenzhen 4 วัน 3 คืน · 30 ก.ค. – 3 ส.ค. 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Anuphan:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0C1A24;--ink-soft:#3A4D59;--frost:#EDF3F6;--surface:#FFFFFF;--line:#D8E5EB;
+    --glacier:#2E94C4;--glacier-deep:#176A93;--ice:#9CD6EE;--ice-pale:#DEF0F8;
+    --ember:#E8632B;--ember-soft:#FBEDE4;--night-1:#091420;--night-2:#11293B;
+    --display:'Bai Jamjuree',sans-serif;--body:'Anuphan',sans-serif;--mono:'IBM Plex Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--body);color:var(--ink);background:var(--frost);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  .wrap{max-width:940px;margin:0 auto;padding:0 22px;}
+  a{color:inherit;}
+  :focus-visible{outline:2px solid var(--glacier);outline-offset:3px;border-radius:6px;}
+
+  /* HERO */
+  .hero{position:relative;background:
+      radial-gradient(120% 90% at 80% -10%, rgba(46,148,196,.35), transparent 55%),
+      radial-gradient(90% 80% at 0% 120%, rgba(23,106,147,.4), transparent 60%),
+      linear-gradient(160deg,var(--night-1),var(--night-2));
+    color:#EAF4F9;padding:40px 0 0;overflow:hidden;}
+  .hero::after{content:"深圳";position:absolute;right:-4%;bottom:-30%;font-family:var(--display);font-weight:700;
+    font-size:clamp(120px,30vw,300px);line-height:.8;color:rgba(156,214,238,.07);pointer-events:none;letter-spacing:-.02em;}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--ice);display:flex;align-items:center;gap:12px;}
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--ice);opacity:.6;}
+  .hero h1{font-family:var(--display);font-weight:700;font-size:clamp(36px,8vw,72px);line-height:.98;letter-spacing:-.02em;margin:16px 0 6px;}
+  .hero h1 .sub{display:block;font-size:.36em;font-weight:500;color:var(--ice);letter-spacing:.04em;margin-top:10px;}
+  .readout{display:flex;flex-wrap:wrap;margin:26px 0 4px;border:1px solid rgba(156,214,238,.22);border-radius:14px;overflow:hidden;max-width:520px;}
+  .temp{flex:1;min-width:150px;padding:15px 22px;}
+  .temp + .temp{border-left:1px solid rgba(156,214,238,.18);}
+  .temp .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#90AEBD;}
+  .temp .v{font-family:var(--mono);font-weight:600;font-size:30px;line-height:1.1;margin-top:5px;}
+  .temp.cold .v{color:var(--ice);} .temp.hot .v{color:#F8A579;}
+  .temp .note{font-size:13px;color:#9FBAC8;}
+
+  /* TABS */
+  .tabbar{position:sticky;top:0;z-index:30;background:rgba(9,20,32,.92);backdrop-filter:blur(10px);
+    border-top:1px solid rgba(156,214,238,.16);margin-top:26px;}
+  .tabbar .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;}
+  .tabbar .wrap::-webkit-scrollbar{display:none;}
+  .tab{flex:0 0 auto;background:none;border:none;cursor:pointer;color:#90AEBD;font-family:var(--display);
+    font-weight:600;font-size:15px;padding:16px 16px 14px;border-bottom:2px solid transparent;white-space:nowrap;transition:color .2s;}
+  .tab .n{font-family:var(--mono);font-size:11px;color:#5E7d8d;margin-right:7px;}
+  .tab:hover{color:#D8E6EE;}
+  .tab[aria-selected="true"]{color:#fff;border-bottom-color:var(--glacier);}
+  .tab[aria-selected="true"] .n{color:var(--ice);}
+
+  /* PANELS */
+  .panel{display:none;padding:34px 0 10px;animation:fade .5s ease;}
+  .panel.active{display:block;}
+  @keyframes fade{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  .phead{margin-bottom:24px;}
+  .phead .eyebrow{color:var(--glacier-deep);} .phead .eyebrow::before{background:var(--glacier);}
+  .phead h2{font-family:var(--display);font-weight:700;font-size:clamp(24px,5vw,34px);margin-top:11px;letter-spacing:-.01em;}
+  .phead p{color:var(--ink-soft);font-weight:300;margin-top:7px;max-width:560px;}
+
+  /* DAY CARDS */
+  .day{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px 24px 22px;margin-bottom:18px;transition:box-shadow .3s;}
+  .day:hover{box-shadow:0 18px 40px -24px rgba(12,26,36,.4);}
+  .day-top{display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap;}
+  .daynum{font-family:var(--mono);font-weight:600;font-size:13px;letter-spacing:.12em;color:var(--glacier-deep);background:var(--ice-pale);border-radius:8px;padding:7px 11px;white-space:nowrap;}
+  .day-title{flex:1;min-width:200px;}
+  .day-title .date{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);}
+  .day-title h3{font-family:var(--display);font-weight:600;font-size:22px;margin-top:4px;letter-spacing:-.01em;}
+  .tempchip{font-family:var(--mono);font-size:12px;padding:6px 12px;border-radius:999px;white-space:nowrap;border:1px solid var(--line);color:var(--ink-soft);}
+  .tempchip.cold{background:var(--ice-pale);border-color:#BFE2F1;color:var(--glacier-deep);}
+  .tempchip.hot{background:var(--ember-soft);border-color:#F4D6C6;color:#B4471D;}
+  .stops{list-style:none;margin-top:20px;border-top:1px solid var(--line);}
+  .stop{display:flex;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);}
+  .stop:last-child{border-bottom:none;}
+  .stop .time{font-family:var(--mono);font-size:13px;color:var(--glacier-deep);min-width:60px;padding-top:1px;font-weight:500;}
+  .stop .what{flex:1;}
+  .stop .what b{font-weight:600;font-size:16px;}
+  .stop .what span{display:block;color:var(--ink-soft);font-size:14px;font-weight:300;margin-top:1px;}
+  .tag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:6px;margin-left:7px;transform:translateY(-1px);}
+  .tag.eat{background:var(--ember-soft);color:#B4471D;} .tag.see{background:var(--ice-pale);color:var(--glacier-deep);}
+  .day.snow{background:linear-gradient(165deg,#0C1F2C,#15384E);border-color:#1c4c66;color:#E7F4FA;}
+  .day.snow::before{content:"冰雪";position:absolute;top:-2px;right:18px;font-family:var(--display);font-weight:700;font-size:70px;color:rgba(156,214,238,.1);line-height:1;}
+  .day.snow .daynum{background:rgba(156,214,238,.16);color:var(--ice);}
+  .day.snow .day-title h3{color:#fff;} .day.snow .day-title .date{color:var(--ice);}
+  .day.snow .stops,.day.snow .stop{border-color:rgba(156,214,238,.18);}
+  .day.snow .stop .time{color:var(--ice);} .day.snow .stop .what span{color:#A9CBDB;}
+  .day.snow .hl{margin-top:18px;display:flex;flex-wrap:wrap;gap:9px;}
+  .day.snow .fact{font-family:var(--mono);font-size:12.5px;background:rgba(156,214,238,.1);border:1px solid rgba(156,214,238,.2);color:#CDE7F2;border-radius:9px;padding:8px 13px;}
+  .day.snow .fact b{color:#fff;font-weight:600;}
+  .must{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;background:var(--ember);color:#fff;border-radius:999px;padding:5px 12px;font-weight:500;}
+
+  /* PLACE CARDS */
+  .grouplabel{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--glacier-deep);margin:6px 0 14px;display:flex;align-items:center;gap:10px;}
+  .grouplabel::after{content:"";flex:1;height:1px;background:var(--line);}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-bottom:30px;}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;display:flex;flex-direction:column;transition:box-shadow .25s,transform .25s;}
+  .card:hover{box-shadow:0 16px 34px -22px rgba(12,26,36,.45);transform:translateY(-2px);}
+  .card .cat{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:6px;align-self:flex-start;}
+  .card .cat.see{background:var(--ice-pale);color:var(--glacier-deep);}
+  .card .cat.eat{background:var(--ember-soft);color:#B4471D;}
+  .card h4{font-family:var(--display);font-weight:600;font-size:18px;margin:11px 0 1px;}
+  .card .cn{font-size:13px;color:var(--ink-soft);font-weight:300;}
+  .card .desc{font-size:14px;color:var(--ink-soft);font-weight:300;margin:8px 0 14px;flex:1;}
+  .btns{display:flex;gap:8px;}
+  .btns a{flex:1;text-align:center;text-decoration:none;font-family:var(--mono);font-size:12px;font-weight:500;padding:9px 6px;border-radius:9px;transition:background .2s,color .2s;}
+  .btns .photo{background:var(--ember-soft);color:#B4471D;}
+  .btns .photo:hover{background:var(--ember);color:#fff;}
+  .btns .map{background:var(--ice-pale);color:var(--glacier-deep);}
+  .btns .map:hover{background:var(--glacier);color:#fff;}
+
+  /* CALCULATOR */
+  .calc{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:8px 22px 22px;}
+  .calc-controls{display:flex;flex-wrap:wrap;gap:16px;padding:20px 0;border-bottom:1px solid var(--line);}
+  .field{flex:1;min-width:150px;}
+  .field label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px;}
+  .field input{width:100%;font-family:var(--mono);font-size:18px;font-weight:500;color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--frost);}
+  .field input:focus{outline:none;border-color:var(--glacier);background:#fff;}
+  .field .hint{font-size:12px;color:var(--ink-soft);font-weight:300;margin-top:5px;}
+  .row{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);}
+  .row .rname{flex:1;min-width:120px;}
+  .row .rname b{font-weight:500;font-size:15px;}
+  .row .rname span{display:block;font-family:var(--mono);font-size:11px;color:var(--ink-soft);margin-top:2px;}
+  .row .rin{display:flex;align-items:center;gap:6px;}
+  .row .rin input{width:84px;font-family:var(--mono);font-size:15px;text-align:right;border:1px solid var(--line);border-radius:8px;padding:8px 9px;background:var(--frost);}
+  .row .rin input:focus{outline:none;border-color:var(--glacier);background:#fff;}
+  .row .cur{font-family:var(--mono);font-size:12px;color:var(--ink-soft);width:26px;}
+  .row .rtotal{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--glacier-deep);width:108px;text-align:right;}
+  .grand{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:flex-end;margin-top:22px;background:linear-gradient(165deg,#0C1F2C,#15384E);color:#fff;border-radius:14px;padding:22px 24px;}
+  .grand .gk{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ice);}
+  .grand .gtot{font-family:var(--mono);font-weight:600;font-size:40px;line-height:1;margin-top:6px;}
+  .grand .gper{text-align:right;}
+  .grand .gper .v{font-family:var(--mono);font-weight:600;font-size:24px;color:var(--ice);}
+  .resetbtn{margin-top:14px;font-family:var(--mono);font-size:12px;color:var(--ink-soft);background:none;border:1px solid var(--line);border-radius:9px;padding:9px 14px;cursor:pointer;}
+  .resetbtn:hover{border-color:var(--glacier);color:var(--glacier-deep);}
+  .disc{font-size:12.5px;color:var(--ink-soft);font-weight:300;margin-top:14px;}
+
+  /* TIPS + CHECKLIST */
+  .tipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:26px;}
+  .tip{background:var(--surface);padding:20px 22px;}
+  .tip h4{font-family:var(--display);font-weight:600;font-size:15px;color:var(--glacier-deep);display:flex;align-items:center;gap:9px;}
+  .tip h4 .i{font-family:var(--mono);font-size:11px;color:var(--ink-soft);}
+  .tip p{font-size:14px;font-weight:300;color:var(--ink-soft);margin-top:8px;}
+  .checklist{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:8px 22px;}
+  .ci{display:flex;align-items:center;gap:13px;padding:13px 0;border-bottom:1px solid var(--line);cursor:pointer;}
+  .ci:last-child{border-bottom:none;}
+  .ci input{width:20px;height:20px;accent-color:var(--glacier);cursor:pointer;flex:0 0 auto;}
+  .ci span{font-size:15px;transition:color .2s,text-decoration .2s;}
+  .ci input:checked + span{color:var(--ink-soft);text-decoration:line-through;}
+
+  footer{background:var(--night-1);color:#7E9AAA;text-align:center;padding:24px 22px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;}
+  footer b{color:var(--ice);font-weight:500;}
+
+  @media (max-width:560px){
+    .temp{min-width:130px;}
+    .day,.calc{padding:20px 16px;}
+    .grand .gtot{font-size:32px;}
+    .row .rtotal{width:92px;font-size:13px;}
+    .row .rin input{width:72px;}
+  }
+  @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto;}.panel{animation:none;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Snowboard &amp; Eat · 30 Jul – 3 Aug 2026</div>
+    <h1>SHENZHEN<span class="sub">ทริปสโนว์บอร์ด + เที่ยวกิน · 4 วัน 3 คืน</span></h1>
+    <div class="readout">
+      <div class="temp cold"><div class="k">Inside · Snow World</div><div class="v">−6°C</div><div class="note">ลานหิมะในร่ม ตลอดปี</div></div>
+      <div class="temp hot"><div class="k">Outside · Aug</div><div class="v">33°C</div><div class="note">ร้อนชื้น หน้าฝน</div></div>
+    </div>
+  </div>
+  <nav class="tabbar" role="tablist" aria-label="หน้าต่างๆ">
+    <div class="wrap">
+      <button class="tab" role="tab" aria-selected="true"  data-panel="plan"><span class="n">01</span>แผนเที่ยว</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="places"><span class="n">02</span>สถานที่ &amp; รูปภาพ</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="budget"><span class="n">03</span>คำนวณค่าใช้จ่าย</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="prep"><span class="n">04</span>เตรียมตัว</button>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <!-- ===== PANEL 1: PLAN ===== -->
+  <section class="panel active" id="plan" role="tabpanel">
+    <div class="phead"><div class="eyebrow">Itinerary</div><h2>แผนทีละวัน</h2>
+      <p>พักย่าน Dongmen ไล่เที่ยวตามโซนเพื่อประหยัดเวลาเดินทาง — วัน Snow World แยกเต็มวันเพราะอยู่ไกลสุดเมือง</p></div>
+
+    <article class="day">
+      <div class="day-top"><div class="daynum">DAY 01</div>
+        <div class="day-title"><div class="date">พฤหัสบดี · 30 ก.ค.</div><h3>ถึงเมือง + ตั้งหลักย่าน Dongmen</h3></div>
+        <div class="tempchip hot">วันชิล · เพิ่งลงไฟลต์ดึก</div></div>
+      <ul class="stops">
+        <li class="stop"><div class="time">07:10</div><div class="what"><b>ถึง SZX → เข้าที่พัก Dongmen</b><span>ผ่าน ตม. แล้วนั่ง Metro สาย 11 / แท็กซี่ราว 45–60 นาที ฝากกระเป๋าก่อนเช็กอินบ่าย</span></div></li>
+        <li class="stop"><div class="time">14:00</div><div class="what"><b>Huaqiangbei 华强北<span class="tag see">See</span></b><span>ตลาดอิเล็กทรอนิกส์ใหญ่ที่สุดในโลก gadget มือถือ อะไหล่ ต่อราคาได้</span></div></li>
+        <li class="stop"><div class="time">19:00</div><div class="what"><b>Dongmen Pedestrian Street<span class="tag eat">Eat</span></b><span>สตรีทฟู้ดคึกคักช่วงค่ำ ไฮไลต์หอยนางรมเผากระเทียมพริก</span></div></li>
+        <li class="stop"><div class="time">ค่ำ</div><div class="what"><b>Tanggong 唐宫海鲜舫<span class="tag eat">Eat</span></b><span>ติ่มซำ/อาหารกวางตุ้งเจ้าเก่าแถว Dongmen</span></div></li>
+      </ul>
+    </article>
+
+    <article class="day snow">
+      <div class="day-top"><div class="daynum">DAY 02</div>
+        <div class="day-title"><div class="date">ศุกร์ · 31 ก.ค.</div><h3>🏂 Qianhai Snow World</h3></div>
+        <div class="must">Must-do · เต็มวัน</div></div>
+      <ul class="stops">
+        <li class="stop"><div class="time">08:00</div><div class="what"><b>ออกเดินทางแต่เช้า</b><span>Metro สาย 20 ปลายทางสถานี 会展城 ทางออก D เดิน ~400 ม. · จากหลัวหู ~1–1.5 ชม.</span></div></li>
+        <li class="stop"><div class="time">ทั้งวัน</div><div class="what"><b>เล่นสโนว์บอร์ด 华发冰雪世界</b><span>ลานในร่มใหญ่สุดในโลก 5 สโลประดับแข่งขัน + เทอเรนพาร์ค</span></div></li>
+        <li class="stop"><div class="time">เย็น</div><div class="what"><b>กินในคอมเพล็กซ์<span class="tag eat">Eat</span></b><span>มีห้าง/ร้านอาหารในตัว แล้วค่อยกลับพักผ่อน</span></div></li>
+      </ul>
+      <div class="hl">
+        <div class="fact">🎟️ บัตร <b>208–568 ¥</b> · จองล่วงหน้า</div>
+        <div class="fact">👕 เตรียม <b>ถุงมือ · ถุงเท้าหนา · หมวก</b></div>
+        <div class="fact">❄️ คงอุณหภูมิ <b>−6°C</b> ตลอดปี</div>
+      </div>
+    </article>
+
+    <article class="day">
+      <div class="day-top"><div class="daynum">DAY 03</div>
+        <div class="day-title"><div class="date">เสาร์ · 1 ส.ค.</div><h3>โซนหนานซาน / OCT</h3></div>
+        <div class="tempchip">เที่ยว–คาเฟ่–วิวตึก</div></div>
+      <ul class="stops">
+        <li class="stop"><div class="time">09:30</div><div class="what"><b>Window of the World 世界之窗<span class="tag see">See</span></b><span>สวนจำลองแลนด์มาร์กทั่วโลก หอไอเฟล 1:3 (บัตร ~220 ¥)</span></div></li>
+        <li class="stop"><div class="time">12:30</div><div class="what"><b>Jade Garden 翠园<span class="tag eat">Eat</span></b><span>ติ่มซำกวางตุ้งสวย-อร่อย รีวิว 4.8</span></div></li>
+        <li class="stop"><div class="time">14:30</div><div class="what"><b>OCT-LOFT 华侨城创意文化园<span class="tag see">See</span></b><span>ย่านโรงงานเก่ารีโนเวต คาเฟ่ แกลเลอรี ถ่ายรูปชิล</span></div></li>
+        <li class="stop"><div class="time">18:00</div><div class="what"><b>Talent Park 人才公园<span class="tag see">See</span></b><span>วิวตึกระฟ้าริมอ่าว + โชว์โดรน/แสงสีตอนค่ำ</span></div></li>
+        <li class="stop"><div class="time">20:00</div><div class="what"><b>No.79 Fishing Boat 渔船头<span class="tag eat">Eat</span></b><span>ซีฟู้ดสดเลือกเอง รีวิว 4.8 (แนะนำจองโต๊ะ)</span></div></li>
+      </ul>
+    </article>
+
+    <article class="day">
+      <div class="day-top"><div class="daynum">DAY 04</div>
+        <div class="day-title"><div class="date">อาทิตย์ · 2 ส.ค.</div><h3>ฝูเถียนกลางเมือง + ปิดทริป</h3></div>
+        <div class="tempchip hot">วิวเมือง · ช้อปปิดท้าย</div></div>
+      <ul class="stops">
+        <li class="stop"><div class="time">09:30</div><div class="what"><b>Lianhuashan Park 莲花山公园<span class="tag see">See</span></b><span>เดินขึ้นเนินดูรูปปั้นเติ้งเสี่ยวผิง + วิวพาโนรามาเมือง</span></div></li>
+        <li class="stop"><div class="time">11:30</div><div class="what"><b>Shenzhen Museum 深圳博物馆<span class="tag see">See</span></b><span>พิพิธภัณฑ์เซินเจิ้น เข้าฟรี ติดกับ Lianhuashan</span></div></li>
+        <li class="stop"><div class="time">16:30</div><div class="what"><b>Ping An · Free Sky 平安金融中心<span class="tag see">See</span></b><span>จุดชมวิวชั้น 116 สูง 547 ม. + ช้อปห้าง MixC / KK Mall</span></div></li>
+        <li class="stop"><div class="time">22:00</div><div class="what"><b>เข้าสนามบิน SZX</b><span>จากฝูเถียนนั่งสาย 11 ~40–50 นาที เผื่อเวลาเช็กอิน</span></div></li>
+        <li class="stop"><div class="time">00:15</div><div class="what"><b>บินกลับ BKK ✈️</b><span>Shenzhen Airlines · ถึงสุวรรณภูมิ 02:15 (จันทร์)</span></div></li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- ===== PANEL 2: PLACES ===== -->
+  <section class="panel" id="places" role="tabpanel">
+    <div class="phead"><div class="eyebrow">Places &amp; Photos</div><h2>สถานที่ &amp; รูปภาพ</h2>
+      <p>แต่ละจุดกด <b>📷 ดูรูป</b> เพื่อดูภาพจริงบน Google รูปภาพ และ <b>🗺️ แผนที่</b> เพื่อเปิด Google Maps นำทางได้ทันที</p></div>
+
+    <div class="grouplabel">สถานที่เที่ยว · Attractions</div>
+    <div class="cards" id="see-cards"></div>
+
+    <div class="grouplabel">ร้านอาหารแนะนำ · Eat</div>
+    <div class="cards" id="eat-cards"></div>
+  </section>
+
+  <!-- ===== PANEL 3: BUDGET ===== -->
+  <section class="panel" id="budget" role="tabpanel">
+    <div class="phead"><div class="eyebrow">Budget</div><h2>คำนวณค่าใช้จ่าย</h2>
+      <p>ปรับจำนวนคนและเรตเงินได้ ตัวเลขแต่ละช่องแก้ได้หมด คำนวณรวมเป็นเงินบาทให้สดทันที</p></div>
+    <div class="calc">
+      <div class="calc-controls">
+        <div class="field"><label>จำนวนคน</label><input type="number" id="people" value="2" min="1" step="1"><div class="hint">หารเฉลี่ยต่อคนให้อัตโนมัติ</div></div>
+        <div class="field"><label>เรตเงิน · 1 ¥ = ? บาท</label><input type="number" id="rate" value="5.0" min="0" step="0.1"><div class="hint">เช็กเรตจริงวันเดินทางแล้วแก้ได้</div></div>
+      </div>
+      <div id="rows"></div>
+      <div class="grand">
+        <div><div class="gk">รวมทั้งทริป (ทุกคน)</div><div class="gtot" id="grandTotal">฿0</div></div>
+        <div class="gper"><div class="gk">เฉลี่ยต่อคน</div><div class="v" id="perPerson">฿0</div></div>
+      </div>
+      <button class="resetbtn" id="resetBtn">↺ คืนค่าเริ่มต้น</button>
+      <p class="disc">* ตัวเลขเป็นค่าประมาณเริ่มต้นเพื่อช่วยตั้งงบ ไม่ใช่ราคาจริง — ราคาตั๋ว/ที่พัก/อาหารเปลี่ยนได้ตามช่วงเวลาและสไตล์การเที่ยว ปรับให้ตรงกับตัวเองได้เลย</p>
+    </div>
+  </section>
+
+  <!-- ===== PANEL 4: PREP ===== -->
+  <section class="panel" id="prep" role="tabpanel">
+    <div class="phead"><div class="eyebrow">Before you go</div><h2>เตรียมตัว &amp; เช็กลิสต์</h2>
+      <p>เรื่องสำคัญที่ต้องรู้ก่อนไป และของที่ต้องเตรียม (กดติ๊กเก็บได้)</p></div>
+    <div class="tipgrid">
+      <div class="tip"><h4><span class="i">01</span>วีซ่า</h4><p>ไทย–จีน ยกเว้นวีซ่าให้กัน อยู่ได้ 30 วัน (พาสปอร์ตไทยไม่ต้องขอ) — เช็กกฎล่าสุดอีกครั้งก่อนเดินทาง</p></div>
+      <div class="tip"><h4><span class="i">02</span>เน็ต &amp; แอป</h4><p>จีนบล็อก Google/LINE/FB เตรียม eSIM ที่มี roaming หรือ VPN และโหลดแผนที่ Amap (高德) ไว้ก่อน</p></div>
+      <div class="tip"><h4><span class="i">03</span>จ่ายเงิน</h4><p>ผูกบัตร Visa/Mastercard เข้า Alipay หรือ WeChat Pay สแกนจ่ายได้แทบทุกที่ พกเงินสดหยวนนิดหน่อย</p></div>
+      <div class="tip"><h4><span class="i">04</span>เดินทางในเมือง</h4><p>Metro ครอบคลุมทุกจุด ซื้อตั๋วผ่าน Shenzhen Metro mini-program ใน Alipay แตะ QR เข้าออก</p></div>
+      <div class="tip"><h4><span class="i">05</span>Snow World</h4><p>จองบัตรล่วงหน้า เลือกรอบเช้า พกถุงมือกันน้ำ ถุงเท้าหนา หมวก และแว่นกันแดดสำหรับหิมะ</p></div>
+      <div class="tip"><h4><span class="i">06</span>ไฟลต์ขากลับดึก</h4><p>ออกเที่ยว 00:15 — วันสุดท้ายเผื่อถึงสนามบิน ~22:00 เพราะเช็กอินระหว่างประเทศปิดก่อนเวลาบิน</p></div>
+    </div>
+    <div class="grouplabel">เช็กลิสต์ของที่ต้องเตรียม</div>
+    <div class="checklist" id="checklist"></div>
+  </section>
+
+</main>
+
+<footer>深圳 SHENZHEN · 30 JUL – 3 AUG 2026 · พักย่าน <b>Dongmen</b> · ไฮไลต์ <b>Qianhai Snow World</b></footer>
+
+<script>
+(function(){
+  /* ---------- TABS ---------- */
+  var tabs = document.querySelectorAll('.tab');
+  var panels = document.querySelectorAll('.panel');
+  function show(id){
+    tabs.forEach(function(t){t.setAttribute('aria-selected', t.dataset.panel===id);});
+    panels.forEach(function(p){p.classList.toggle('active', p.id===id);});
+    if(history.replaceState) history.replaceState(null,'','#'+id);
+    window.scrollTo({top:0,behavior:'instant' in window ? 'instant':'auto'});
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ show(t.dataset.panel); }); });
+  if(location.hash){ var h=location.hash.slice(1); if(document.getElementById(h)) show(h); }
+
+  /* ---------- PLACES ---------- */
+  var see = [
+    ["Qianhai Snow World","华发冰雪世界","ลานสกีในร่มใหญ่สุดในโลก −6°C ไฮไลต์ของทริป","深圳华发冰雪世界"],
+    ["Dongmen Street","东门步行街","ถนนคนเดิน ช้อป+สตรีทฟู้ด ย่านที่พัก","深圳东门步行街"],
+    ["Huaqiangbei","华强北","ตลาดอิเล็กทรอนิกส์ใหญ่ที่สุดในโลก","深圳华强北电子市场"],
+    ["Window of the World","世界之窗","สวนจำลองแลนด์มาร์กทั่วโลก","深圳世界之窗"],
+    ["OCT-LOFT","华侨城创意文化园","ย่านครีเอทีฟ คาเฟ่ แกลเลอรี","深圳华侨城创意文化园"],
+    ["Talent Park","人才公园","สวนริมอ่าว วิวตึกระฟ้า + โดรนโชว์","深圳人才公园 夜景"],
+    ["Lianhuashan Park","莲花山公园","เนินชมวิวเมือง + รูปปั้นเติ้งเสี่ยวผิง","深圳莲花山公园"],
+    ["Shenzhen Museum","深圳博物馆","พิพิธภัณฑ์เมือง เข้าฟรี","深圳博物馆"],
+    ["Ping An Free Sky","平安金融中心","จุดชมวิวชั้น 116 สูง 547 ม.","深圳平安金融中心 云际观光"]
+  ];
+  var eat = [
+    ["Tanggong","唐宫海鲜舫","ติ่มซำ/กวางตุ้งเจ้าเก่าแถว Dongmen","深圳唐宫海鲜舫"],
+    ["Jade Garden","翠园","ติ่มซำกวางตุ้งสวย-อร่อย รีวิว 4.8","深圳翠园餐厅"],
+    ["No.79 Fishing Boat","渔船头","ซีฟู้ดสดเลือกเอง รีวิว 4.8","深圳渔船头海鲜"],
+    ["Dongmen Street Food","东门美食","หอยนางรมเผา + สตรีทฟู้ดยามค่ำ","深圳东门美食 街边"]
+  ];
+  function img(q){ return 'https://www.google.com/search?tbm=isch&q='+encodeURIComponent(q); }
+  function map(q){ return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q); }
+  function render(list,target,cls){
+    var html = list.map(function(p){
+      return '<div class="card"><span class="cat '+cls+'">'+(cls==='see'?'Attraction':'Eat')+'</span>'+
+        '<h4>'+p[0]+'</h4><div class="cn">'+p[1]+'</div>'+
+        '<div class="desc">'+p[2]+'</div>'+
+        '<div class="btns">'+
+        '<a class="photo" href="'+img(p[3])+'" target="_blank" rel="noopener">📷 ดูรูป</a>'+
+        '<a class="map" href="'+map(p[3])+'" target="_blank" rel="noopener">🗺️ แผนที่</a>'+
+        '</div></div>';
+    }).join('');
+    document.getElementById(target).innerHTML = html;
+  }
+  render(see,'see-cards','see');
+  render(eat,'eat-cards','eat');
+
+  /* ---------- BUDGET ---------- */
+  // [name, sublabel, default value, currency 'thb'|'cny', mult 'person'|'pn'(per night)|'pd'(per day)|'group']
+  var NIGHTS=3, DAYS=4;
+  var defaults = [
+    ["ตั๋วเครื่องบิน ไป-กลับ","ต่อคน",7000,"thb","person"],
+    ["ที่พัก ย่าน Dongmen","ต่อคน/คืน × 3 คืน",700,"thb","pn"],
+    ["Snow World บัตร","ต่อคน",418,"cny","person"],
+    ["ค่าเข้าชมอื่นๆ","Window+Ping An ต่อคน",410,"cny","person"],
+    ["อาหาร","ต่อคน/วัน × 4 วัน",150,"cny","pd"],
+    ["เดินทางในเมือง","Metro/แท็กซี่ ต่อคน/วัน × 4",40,"cny","pd"],
+    ["eSIM / ซิมเน็ต","ต่อคน",300,"thb","person"],
+    ["ช้อปปิ้ง / เบ็ดเตล็ด","ต่อคน",300,"cny","person"]
+  ];
+  var rowsEl = document.getElementById('rows');
+  function buildRows(vals){
+    rowsEl.innerHTML = vals.map(function(d,i){
+      return '<div class="row"><div class="rname"><b>'+d[0]+'</b><span>'+d[1]+'</span></div>'+
+        '<div class="rin"><input type="number" min="0" step="1" data-i="'+i+'" data-cur="'+d[3]+'" data-mult="'+d[4]+'" value="'+d[2]+'">'+
+        '<span class="cur">'+(d[3]==='cny'?'¥':'฿')+'</span></div>'+
+        '<div class="rtotal" id="rt'+i+'">฿0</div></div>';
+    }).join('');
+    rowsEl.querySelectorAll('input').forEach(function(inp){ inp.addEventListener('input', calc); });
+  }
+  function baht(n){ return '฿'+Math.round(n).toLocaleString('en-US'); }
+  function calc(){
+    var people = Math.max(1, parseFloat(document.getElementById('people').value)||1);
+    var rate = Math.max(0, parseFloat(document.getElementById('rate').value)||0);
+    var grand = 0;
+    rowsEl.querySelectorAll('input').forEach(function(inp){
+      var v = parseFloat(inp.value)||0;
+      var thb = inp.dataset.cur==='cny' ? v*rate : v;
+      var m = inp.dataset.mult;
+      var count = m==='group'?1 : m==='pn'?people*NIGHTS : m==='pd'?people*DAYS : people;
+      var rowTotal = thb*count;
+      document.getElementById('rt'+inp.dataset.i).textContent = baht(rowTotal);
+      grand += rowTotal;
+    });
+    document.getElementById('grandTotal').textContent = baht(grand);
+    document.getElementById('perPerson').textContent = baht(grand/people);
+  }
+  document.getElementById('people').addEventListener('input', calc);
+  document.getElementById('rate').addEventListener('input', calc);
+  document.getElementById('resetBtn').addEventListener('click', function(){
+    document.getElementById('people').value = 2;
+    document.getElementById('rate').value = 5.0;
+    buildRows(defaults); calc();
+  });
+  buildRows(defaults); calc();
+
+  /* ---------- CHECKLIST ---------- */
+  var items = ["พาสปอร์ต (เหลืออายุ > 6 เดือน)","eSIM / VPN ติดตั้งพร้อมใช้","โหลดแอป Amap + Alipay/WeChat Pay","จองบัตร Snow World ล่วงหน้า","ถุงมือกันน้ำ + ถุงเท้าหนา + หมวก","เสื้อแขนยาว/แจ็กเก็ตบางสำหรับลานหิมะ","ร่ม/เสื้อกันฝนบางๆ (หน้าฝน)","ปลั๊กแปลง + พาวเวอร์แบงก์","ยาประจำตัว","แคปหน้าจอแผนเที่ยว/ที่อยู่โรงแรม (ไว้โชว์แท็กซี่)"];
+  document.getElementById('checklist').innerHTML = items.map(function(t,i){
+    return '<label class="ci"><input type="checkbox" id="ck'+i+'"><span>'+t+'</span></label>';
+  }).join('');
+})();
+</script>
+</body>
+</html>
