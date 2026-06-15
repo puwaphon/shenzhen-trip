@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shenzhen 4 วัน 3 คืน · 30 ก.ค. – 3 ส.ค. 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=Anuphan:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0C1A24;
+    --ink-soft:#3A4D59;
+    --frost:#EDF3F6;
+    --surface:#FFFFFF;
+    --line:#D8E5EB;
+    --glacier:#2E94C4;
+    --glacier-deep:#176A93;
+    --ice:#9CD6EE;
+    --ice-pale:#DEF0F8;
+    --ember:#E8632B;
+    --ember-soft:#FBEDE4;
+    --night-1:#091420;
+    --night-2:#11293B;
+    --display:'Bai Jamjuree',sans-serif;
+    --body:'Anuphan',sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--body);
+    color:var(--ink);
+    background:var(--frost);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(120% 90% at 80% -10%, rgba(46,148,196,.35), transparent 55%),
+      radial-gradient(90% 80% at 0% 110%, rgba(23,106,147,.4), transparent 60%),
+      linear-gradient(160deg,var(--night-1),var(--night-2));
+    color:#EAF4F9;
+    padding:46px 0 0;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"深圳";
+    position:absolute;
+    right:-4%;bottom:-14%;
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(140px,34vw,340px);
+    line-height:.8;
+    color:rgba(156,214,238,.07);
+    pointer-events:none;
+    letter-spacing:-.02em;
+  }
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:var(--ice);
+    display:flex;align-items:center;gap:12px;
+  }
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--ice);opacity:.6;}
+  .hero h1{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(40px,9vw,82px);
+    line-height:.98;
+    letter-spacing:-.02em;
+    margin:18px 0 6px;
+  }
+  .hero h1 .sub{display:block;font-size:.34em;font-weight:500;color:var(--ice);letter-spacing:.04em;margin-top:10px;}
+  .hero .lead{max-width:430px;color:#BDD4E0;font-weight:300;margin-top:14px;font-size:17px;}
+
+  /* temperature readout — the signature */
+  .readout{
+    display:flex;flex-wrap:wrap;gap:0;
+    margin:34px 0 0;
+    border:1px solid rgba(156,214,238,.22);
+    border-radius:14px;
+    overflow:hidden;
+    backdrop-filter:blur(2px);
+    max-width:520px;
+  }
+  .temp{flex:1;min-width:150px;padding:18px 22px;position:relative;}
+  .temp + .temp{border-left:1px solid rgba(156,214,238,.18);}
+  .temp .k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#90AEBD;}
+  .temp .v{font-family:var(--mono);font-weight:600;font-size:34px;line-height:1.1;margin-top:6px;}
+  .temp.cold .v{color:var(--ice);}
+  .temp.hot .v{color:#F8A579;}
+  .temp .note{font-size:13px;color:#9FBAC8;margin-top:2px;}
+
+  .flights{
+    display:grid;grid-template-columns:1fr 1fr;gap:1px;
+    background:rgba(156,214,238,.18);
+    border:1px solid rgba(156,214,238,.18);
+    border-radius:14px;overflow:hidden;
+    margin-top:16px;max-width:520px;
+  }
+  .flight{background:rgba(9,20,32,.55);padding:16px 20px;}
+  .flight .dir{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--ice);text-transform:uppercase;}
+  .flight .route{font-family:var(--display);font-weight:600;font-size:19px;margin-top:7px;letter-spacing:.01em;}
+  .flight .arrow{color:var(--glacier);margin:0 7px;}
+  .flight .when{font-family:var(--mono);font-size:13px;color:#A9C4D2;margin-top:3px;}
+
+  .hero-fade{height:70px;background:linear-gradient(to bottom,transparent,var(--frost));margin-top:34px;}
+
+  /* ---------- TIMELINE ---------- */
+  .days{padding:8px 0 20px;position:relative;}
+  .section-head{margin:30px 0 26px;}
+  .section-head .eyebrow{color:var(--glacier-deep);}
+  .section-head .eyebrow::before{background:var(--glacier);}
+  .section-head h2{font-family:var(--display);font-weight:700;font-size:clamp(26px,5vw,38px);margin-top:12px;letter-spacing:-.01em;}
+
+  .day{
+    position:relative;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:26px 26px 24px;
+    margin-bottom:20px;
+    opacity:0;transform:translateY(26px);
+    transition:opacity .7s ease,transform .7s ease,box-shadow .3s ease;
+  }
+  .day.in{opacity:1;transform:none;}
+  .day:hover{box-shadow:0 18px 40px -24px rgba(12,26,36,.4);}
+
+  .day-top{display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap;}
+  .daynum{
+    font-family:var(--mono);
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:.12em;
+    color:var(--glacier-deep);
+    background:var(--ice-pale);
+    border-radius:8px;
+    padding:7px 11px;
+    white-space:nowrap;
+  }
+  .day-title{flex:1;min-width:200px;}
+  .day-title .date{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);}
+  .day-title h3{font-family:var(--display);font-weight:600;font-size:23px;margin-top:4px;letter-spacing:-.01em;}
+  .tempchip{
+    font-family:var(--mono);font-size:12px;font-weight:500;
+    padding:6px 12px;border-radius:999px;white-space:nowrap;
+    border:1px solid var(--line);color:var(--ink-soft);
+  }
+  .tempchip.cold{background:var(--ice-pale);border-color:#BFE2F1;color:var(--glacier-deep);}
+  .tempchip.hot{background:var(--ember-soft);border-color:#F4D6C6;color:#B4471D;}
+
+  .stops{list-style:none;margin:22px 0 0;border-top:1px solid var(--line);padding-top:6px;}
+  .stop{display:flex;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);}
+  .stop:last-child{border-bottom:none;}
+  .stop .time{font-family:var(--mono);font-size:13px;color:var(--glacier-deep);min-width:62px;padding-top:1px;font-weight:500;}
+  .stop .what{flex:1;}
+  .stop .what b{font-weight:600;font-size:16px;}
+  .stop .what span{display:block;color:var(--ink-soft);font-size:14px;font-weight:300;margin-top:1px;}
+  .tag{
+    display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;padding:2px 8px;border-radius:6px;margin-left:7px;vertical-align:middle;
+    transform:translateY(-1px);
+  }
+  .tag.eat{background:var(--ember-soft);color:#B4471D;}
+  .tag.see{background:var(--ice-pale);color:var(--glacier-deep);}
+
+  /* The snow day — where boldness is spent */
+  .day.snow{
+    background:linear-gradient(165deg,#0C1F2C,#15384E);
+    border-color:#1c4c66;
+    color:#E7F4FA;
+  }
+  .day.snow::before{
+    content:"冰雪";
+    position:absolute;top:-2px;right:18px;
+    font-family:var(--display);font-weight:700;font-size:74px;
+    color:rgba(156,214,238,.1);line-height:1;
+  }
+  .day.snow:hover{box-shadow:0 22px 50px -22px rgba(7,17,28,.7);}
+  .day.snow .daynum{background:rgba(156,214,238,.16);color:var(--ice);}
+  .day.snow .day-title h3{color:#fff;}
+  .day.snow .day-title .date{color:var(--ice);}
+  .day.snow .stops,.day.snow .stop{border-color:rgba(156,214,238,.18);}
+  .day.snow .stop .time{color:var(--ice);}
+  .day.snow .stop .what span{color:#A9CBDB;}
+  .day.snow .hl{
+    margin-top:20px;display:flex;flex-wrap:wrap;gap:10px;
+  }
+  .day.snow .fact{
+    font-family:var(--mono);font-size:12.5px;
+    background:rgba(156,214,238,.1);border:1px solid rgba(156,214,238,.2);
+    color:#CDE7F2;border-radius:9px;padding:8px 13px;
+  }
+  .day.snow .fact b{color:#fff;font-weight:600;}
+  .must{
+    display:inline-flex;align-items:center;gap:7px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    background:var(--ember);color:#fff;border-radius:999px;padding:5px 12px;font-weight:500;
+  }
+
+  /* ---------- TIPS ---------- */
+  .tips{background:var(--ink);color:#D8E6EE;padding:50px 0 34px;margin-top:18px;position:relative;overflow:hidden;}
+  .tips::after{content:"美食 · 冰雪";position:absolute;left:-2%;bottom:-6%;font-family:var(--display);font-weight:700;font-size:clamp(60px,14vw,150px);color:rgba(156,214,238,.05);pointer-events:none;}
+  .tips .eyebrow{color:var(--ice);}
+  .tips h2{font-family:var(--display);font-weight:700;font-size:clamp(24px,5vw,34px);margin:12px 0 26px;color:#fff;}
+  .tipgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:rgba(156,214,238,.14);border:1px solid rgba(156,214,238,.14);border-radius:14px;overflow:hidden;}
+  .tip{background:var(--ink);padding:20px 22px;}
+  .tip h4{font-family:var(--display);font-weight:600;font-size:15px;color:var(--ice);display:flex;align-items:center;gap:9px;}
+  .tip h4 .i{font-family:var(--mono);font-size:11px;color:#7FA3B5;}
+  .tip p{font-size:14px;font-weight:300;color:#B7CDD8;margin-top:8px;}
+
+  footer{background:var(--night-1);color:#7E9AAA;text-align:center;padding:26px 22px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;}
+  footer b{color:var(--ice);font-weight:500;}
+
+  @media (max-width:560px){
+    .flights{grid-template-columns:1fr;}
+    .temp{min-width:130px;}
+    .day{padding:22px 18px;}
+    .stop{gap:12px;}
+    .stop .time{min-width:54px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto;}
+    .day{opacity:1;transform:none;transition:none;}
+  }
+  a{color:inherit;}
+  :focus-visible{outline:2px solid var(--glacier);outline-offset:3px;border-radius:4px;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Snowboard &amp; Eat · 30 Jul – 3 Aug 2026</div>
+    <h1>SHENZHEN
+      <span class="sub">ทริปสโนว์บอร์ด + เที่ยวกิน · 4 วัน 3 คืน</span>
+    </h1>
+    <p class="lead">เล่นสโนว์บอร์ดในลานหิมะที่ใหญ่ที่สุดในโลก ท่ามกลางมหานครหน้าร้อน — พักย่าน Dongmen ไล่เที่ยวตามโซนให้คุ้มทุกชั่วโมง</p>
+
+    <div class="readout" aria-label="ความต่างของอุณหภูมิ">
+      <div class="temp cold">
+        <div class="k">Inside · Snow World</div>
+        <div class="v">−6°C</div>
+        <div class="note">ลานหิมะในร่ม ตลอดปี</div>
+      </div>
+      <div class="temp hot">
+        <div class="k">Outside · Aug</div>
+        <div class="v">33°C</div>
+        <div class="note">ร้อนชื้น หน้าฝน/ไต้ฝุ่น</div>
+      </div>
+    </div>
+
+    <div class="flights">
+      <div class="flight">
+        <div class="dir">ขาไป · Shenzhen Airlines</div>
+        <div class="route">BKK<span class="arrow">→</span>SZX</div>
+        <div class="when">พฤ 30 ก.ค. · 03:15 – 07:10</div>
+      </div>
+      <div class="flight">
+        <div class="dir">ขากลับ · Shenzhen Airlines</div>
+        <div class="route">SZX<span class="arrow">→</span>BKK</div>
+        <div class="when">จ 3 ส.ค. · 00:15 – 02:15</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-fade"></div>
+</header>
+
+<main class="days">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Itinerary</div>
+      <h2>แผนทีละวัน</h2>
+    </div>
+
+    <!-- DAY 1 -->
+    <article class="day">
+      <div class="day-top">
+        <div class="daynum">DAY 01</div>
+        <div class="day-title">
+          <div class="date">พฤหัสบดี · 30 ก.ค.</div>
+          <h3>ถึงเมือง + ตั้งหลักย่าน Dongmen</h3>
+        </div>
+        <div class="tempchip hot">วันชิล · เพิ่งลงไฟลต์ดึก</div>
+      </div>
+      <ul class="stops">
+        <li class="stop"><div class="time">07:10</div><div class="what"><b>ถึง SZX → เข้าที่พัก Dongmen</b><span>ผ่าน ตม. แล้วนั่ง Metro สาย 11 / แท็กซี่ราว 45–60 นาที ฝากกระเป๋าก่อนเช็กอินบ่าย</span></div></li>
+        <li class="stop"><div class="time">14:00</div><div class="what"><b>Huaqiangbei 华强北<span class="tag see">See</span></b><span>ตลาดอิเล็กทรอนิกส์ใหญ่ที่สุดในโลก — gadget มือถือ อะไหล่ ต่อราคาได้ (10:00–21:00)</span></div></li>
+        <li class="stop"><div class="time">19:00</div><div class="what"><b>Dongmen Pedestrian Street<span class="tag eat">Eat</span></b><span>สตรีทฟู้ดคึกคักช่วงค่ำ ไฮไลต์หอยนางรมเผากระเทียมพริก ~1 USD/ตัว</span></div></li>
+        <li class="stop"><div class="time">ค่ำ</div><div class="what"><b>Tanggong 唐宫 海鲜舫<span class="tag eat">Eat</span></b><span>ติ่มซำ/อาหารกวางตุ้งเจ้าเก่าแถว Dongmen</span></div></li>
+      </ul>
+    </article>
+
+    <!-- DAY 2 — SNOW -->
+    <article class="day snow">
+      <div class="day-top">
+        <div class="daynum">DAY 02</div>
+        <div class="day-title">
+          <div class="date">ศุกร์ · 31 ก.ค.</div>
+          <h3>🏂 Qianhai Snow World</h3>
+        </div>
+        <div class="must">Must-do · เต็มวัน</div>
+      </div>
+      <ul class="stops">
+        <li class="stop"><div class="time">08:00</div><div class="what"><b>ออกเดินทางแต่เช้า</b><span>Metro สาย 20 ปลายทางสถานี 会展城 (Exhibition City) ทางออก D เดิน ~400 ม. · จากหลัวหูราว 1–1.5 ชม.</span></div></li>
+        <li class="stop"><div class="time">ทั้งวัน</div><div class="what"><b>เล่นสโนว์บอร์ด 华发冰雪世界</b><span>ลานในร่มใหญ่สุดในโลก 5 สโลประดับแข่งขัน + เทอเรนพาร์ค + โซนเล่นหิมะ</span></div></li>
+        <li class="stop"><div class="time">เย็น</div><div class="what"><b>กินในคอมเพล็กซ์<span class="tag eat">Eat</span></b><span>มีห้าง/ร้านอาหารในตัว แล้วค่อยกลับพักผ่อนเอาแรง</span></div></li>
+      </ul>
+      <div class="hl">
+        <div class="fact">🎟️ บัตร <b>208–568 ¥</b> · จองล่วงหน้า Trip.com / Klook</div>
+        <div class="fact">👕 เตรียม <b>ถุงมือกันน้ำ · ถุงเท้าหนา · หมวก</b></div>
+        <div class="fact">❄️ คงอุณหภูมิ <b>−6°C</b> ตลอดปี</div>
+      </div>
+    </article>
+
+    <!-- DAY 3 -->
+    <article class="day">
+      <div class="day-top">
+        <div class="daynum">DAY 03</div>
+        <div class="day-title">
+          <div class="date">เสาร์ · 1 ส.ค.</div>
+          <h3>โซนหนานซาน / OCT</h3>
+        </div>
+        <div class="tempchip">เที่ยว–คาเฟ่–วิวตึก</div>
+      </div>
+      <ul class="stops">
+        <li class="stop"><div class="time">09:30</div><div class="what"><b>Window of the World 世界之窗<span class="tag see">See</span></b><span>สวนจำลองแลนด์มาร์กทั่วโลก หอไอเฟล 1:3 สูง 108 ม. (บัตร ~220 ¥)</span></div></li>
+        <li class="stop"><div class="time">12:30</div><div class="what"><b>Jade Garden 翠园<span class="tag eat">Eat</span></b><span>ติ่มซำกวางตุ้งสวย-อร่อย รีวิว 4.8 อยู่ใกล้ Window of the World</span></div></li>
+        <li class="stop"><div class="time">14:30</div><div class="what"><b>OCT-LOFT 华侨城创意文化园<span class="tag see">See</span></b><span>ย่านโรงงานเก่ารีโนเวต คาเฟ่ แกลเลอรี ร้านดีไซน์ ถ่ายรูปชิล</span></div></li>
+        <li class="stop"><div class="time">18:00</div><div class="what"><b>Talent Park 人才公园<span class="tag see">See</span></b><span>วิวเส้นขอบฟ้าตึกระฟ้าริมอ่าว + โชว์โดรน/แสงสีตอนค่ำ</span></div></li>
+        <li class="stop"><div class="time">20:00</div><div class="what"><b>No.79 Fishing Boat Seafood 渔船头<span class="tag eat">Eat</span></b><span>ซีฟู้ดสดเลือกเอง รีวิว 4.8 เด็ดข้าวผัดเม่นทะเล/ปูยักษ์ (แนะนำจองโต๊ะ)</span></div></li>
+      </ul>
+    </article>
+
+    <!-- DAY 4 -->
+    <article class="day">
+      <div class="day-top">
+        <div class="daynum">DAY 04</div>
+        <div class="day-title">
+          <div class="date">อาทิตย์ · 2 ส.ค.</div>
+          <h3>ฝูเถียนกลางเมือง + ปิดทริป</h3>
+        </div>
+        <div class="tempchip hot">วิวเมือง · ช้อปปิดท้าย</div>
+      </div>
+      <ul class="stops">
+        <li class="stop"><div class="time">09:30</div><div class="what"><b>Lianhuashan Park 莲花山公园<span class="tag see">See</span></b><span>เดินขึ้นเนินดูรูปปั้นเติ้งเสี่ยวผิง + วิวพาโนรามาใจกลางเมือง</span></div></li>
+        <li class="stop"><div class="time">11:30</div><div class="what"><b>Shenzhen Museum 深圳博物馆<span class="tag see">See</span></b><span>พิพิธภัณฑ์เซินเจิ้น เข้าฟรี ติดกับ Lianhuashan</span></div></li>
+        <li class="stop"><div class="time">16:30</div><div class="what"><b>Ping An Finance Center · Free Sky<span class="tag see">See</span></b><span>จุดชมวิวชั้น 116 สูง 547 ม. + ช้อปห้าง MixC / KK Mall (ขึ้นช่วงพระอาทิตย์ตกสวยสุด)</span></div></li>
+        <li class="stop"><div class="time">22:00</div><div class="what"><b>เข้าสนามบิน SZX</b><span>จากฝูเถียนนั่งสาย 11 ~40–50 นาที เผื่อเวลาเช็กอินระหว่างประเทศ</span></div></li>
+        <li class="stop"><div class="time">00:15</div><div class="what"><b>บินกลับ BKK ✈️</b><span>Shenzhen Airlines · ถึงสุวรรณภูมิ 02:15 (จันทร์)</span></div></li>
+      </ul>
+    </article>
+  </div>
+</main>
+
+<section class="tips">
+  <div class="wrap">
+    <div class="eyebrow">Before you go</div>
+    <h2>เตรียมตัว &amp; ทิปสำคัญ</h2>
+    <div class="tipgrid">
+      <div class="tip"><h4><span class="i">01</span>วีซ่า</h4><p>ไทย–จีน ยกเว้นวีซ่าให้กัน อยู่ได้ 30 วัน (พาสปอร์ตไทยไม่ต้องขอ) — เช็กกฎล่าสุดอีกครั้งก่อนเดินทาง</p></div>
+      <div class="tip"><h4><span class="i">02</span>เน็ต &amp; แอป</h4><p>จีนบล็อก Google/LINE/FB เตรียม eSIM ที่มี roaming หรือ VPN และโหลดแผนที่ Amap (高德) ไว้ก่อน</p></div>
+      <div class="tip"><h4><span class="i">03</span>จ่ายเงิน</h4><p>ผูกบัตร Visa/Mastercard เข้า Alipay หรือ WeChat Pay สแกนจ่ายได้แทบทุกที่ พกเงินสดหยวนนิดหน่อยเผื่อฉุกเฉิน</p></div>
+      <div class="tip"><h4><span class="i">04</span>เดินทางในเมือง</h4><p>Metro ครอบคลุมทุกจุดในแผน ซื้อตั๋วผ่าน Shenzhen Metro mini-program ใน Alipay แตะ QR เข้าออก</p></div>
+      <div class="tip"><h4><span class="i">05</span>Snow World</h4><p>จองบัตรล่วงหน้า เลือกรอบเช้า พกถุงมือกันน้ำ ถุงเท้าหนา หมวก และแว่นกันแดดสำหรับหิมะ</p></div>
+      <div class="tip"><h4><span class="i">06</span>ไฟลต์ขากลับดึก</h4><p>ออกเที่ยง 00:15 — วันสุดท้ายเผื่อถึงสนามบิน ~22:00 เพราะเช็กอินระหว่างประเทศปิดก่อนเวลาบิน</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  深圳 SHENZHEN · 30 JUL – 3 AUG 2026 · พักย่าน <b>Dongmen</b> · ไฮไลต์ <b>Qianhai Snow World</b>
+</footer>
+
+<script>
+  (function(){
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var days = document.querySelectorAll('.day');
+    if(reduce || !('IntersectionObserver' in window)){
+      days.forEach(function(d){d.classList.add('in');});
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    },{threshold:0.12});
+    days.forEach(function(d){io.observe(d);});
+  })();
+</script>
+</body>
+</html>
